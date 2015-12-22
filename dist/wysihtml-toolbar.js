@@ -469,8 +469,10 @@ var wysihtml5 = {
       if (anode && anode.parentNode && fnode && fnode.parentNode) {
         r.setStart(anode, aoffset);
         r.setEnd(fnode, foffset);
-        if (s.getRangeAt(0).getClientRects.length > 0) { // Avoid IE error 800a025e
-            s.removeAllRanges();
+        if(s.getRangeAt(0)) {
+          if (s.getRangeAt(0).getClientRects.length > 0) { // Avoid IE error 800a025e
+              s.removeAllRanges();
+          }
         }
         s.addRange(r);
       }
@@ -3470,9 +3472,12 @@ wysihtml5.polyfills(window, document);
 
                     // Clean up
                     dom.removeNode(testEl);
-                    if (sel.getRangeAt(0).getClientRects.length > 0) { // Avoid IE error 800a025e
-                      sel.removeAllRanges();
+                    if(sel.getRangeAt(0)) {
+                      if (sel.getRangeAt(0).getClientRects.length > 0) { // Avoid IE error 800a025e
+                        sel.removeAllRanges();
+                      }                      
                     }
+
                     for (i = 0; i < originalSelectionRangeCount; ++i) {
                         if (i == 0 && originalSelectionBackward) {
                             if (addRangeBackwardToNative) {
