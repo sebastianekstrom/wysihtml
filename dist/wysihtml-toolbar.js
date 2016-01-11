@@ -381,10 +381,6 @@ var wysihtml5 = {
       r.setEnd(t2, 1);
 
       s = window.getSelection();
-      if(s === null) {
-        return false;
-      }
-
       s.removeAllRanges();
       s.addRange(r);
       e.normalize();
