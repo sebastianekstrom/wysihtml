@@ -393,6 +393,9 @@ var wysihtml5 = {
       ret = (e.childNodes.length !== 1 || s.anchorNode !== e.firstChild || s.anchorOffset !== 2);
       e.parentNode.removeChild(e);
       s.removeAllRanges();
+      console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
+      console.log(ret);
+      console.log("%%%%%%%%%%%%%%%%%%%%%%%%%%%%");
       return ret;
     }
   };
